@@ -1,11 +1,6 @@
 require("dotenv").config();
 var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
-// Require npm to link to keys
-require("dotenv").config();
-
-// Require the key.js file 
-var keys = require('./keys.js');
 
 // Require the node package manager for Spotify, request and moment
 var Spotify = require ('node-spotify-api');
