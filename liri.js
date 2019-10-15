@@ -1,18 +1,23 @@
+// Require npm to link to keys
 require("dotenv").config();
-var keys = require("./keys.js");
-var spotify = new Spotify(keys.spotify);
+
+// Require the key.js file 
+var keys = require('./keys.js');
 
 // Require the node package manager for Spotify, request and moment
-var Spotify = require ('node-spotify-api');
-var request = require ('request');
-var moment = require ('moment');
+var Spotify = require('node-spotify-api');
+var request = require('request');
+var moment = require('moment');
+
+// Save key to a variable 
+var spotify = new Spotify(keys.spotify);
 
 // Include file system module
-var fs = require ("fs"); 
+var fs = require("fs");
 
 // Grab all of the command line arguments from Node
 var nodeArgs = process.argv;
-//console.log(process.argv);
+// console.log(process.argv);
 
 var userInput = "";
 var nextUserInput = "";
@@ -28,7 +33,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
     else {
         userInput += nodeArgs[i];
     }
-    console.log(userInput);
+    // console.log(userInput);
 }
 
 //Remove %20 when pushing to log.txt
@@ -37,8 +42,8 @@ for (var i = 3; i < nodeArgs.length; i++) {
 }
 
 var userCommand = process.argv[2];
-console.log(userCommand);
-console.log(process.argv);
+// console.log(userCommand);
+// console.log(process.argv);
 runLiri();
 
 //Switch statement for commands
@@ -56,6 +61,7 @@ function runLiri() {
             //Run request to bandsintown with the specified artist
             var queryURL = "https://rest.bandsintown.com/artists/" + userInput + "/events?app_id=codingbootcamp"
             request(queryURL, function (error, response, body) {
+
                 //If no error and response is a success
                 if (!error && response.statusCode === 200) {
                     //Parse the json response
@@ -109,11 +115,11 @@ function runLiri() {
 
             break;
         case "spotify-this-song":
-        console.log("here");
             //If statement for no song provided
             if (!userInput) {
                 userInput = "The%20Sign";
                 nextUserInput = userInput.replace(/%20/g, " ");
+                console.log("Please input a song!")
 
             }
 
@@ -124,7 +130,7 @@ function runLiri() {
                 };
             });
 
-            console.log(spotify);
+            // console.log(spotify);
             spotify.search({
 
                 type: "track",

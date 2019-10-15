@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/DanielGerhart/Liri-Bot#readme",
   "dependencies": {
-    "node-spotify-api": "^1.1.1"
+    "dotenv": "^8.1.0",
+    "moment": "^2.24.0",
+    "node-spotify-api": "^1.1.1",
+    "request": "^2.88.0"
   }
 }
