@@ -44,10 +44,8 @@ for (var i = 3; i < nodeArgs.length; i++) {
 var userCommand = process.argv[2];
 // console.log(userCommand);
 // console.log(process.argv);
-runLiri();
 
 //Switch statement for commands
-function runLiri() {
 switch (userCommand) {
     case "concert-this":
 concertThis();
@@ -232,7 +230,7 @@ function doWhatItSays() {
         userCommand = textArr[0];
         userInput = textArr[1];
         nextUserInput = userInput.replace(/%20/g, " ");
-        runLiri();
+        spotifyThisSong();
     })
 }
-}
+
